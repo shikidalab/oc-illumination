@@ -4,6 +4,9 @@
 #define MATRIX_WIDTH 32
 #define MATRIX_HEIGHT 8
 
+#define BRIGHTNESS 16
+#define MAX_BRIGHTNESS 255
+
 // データピン
 #define DATA_PIN 6
 
@@ -122,7 +125,7 @@ CRGB color = CRGB::Red;
 
 void loop() {
   // テキストを定義
-  const char* text = "Welcome to the Shikidalab!";
+  const char* text = "Welcome to Shikidalab!";
 
   // マトリックスをクリア
   FastLED.clear();
@@ -174,5 +177,8 @@ void setPixel(int x, int y, CRGB color) {
   int index = y + x * MATRIX_HEIGHT;
   if (index / MATRIX_HEIGHT % 2 != 0) index = (((index + MATRIX_HEIGHT) / MATRIX_HEIGHT) * MATRIX_HEIGHT) - index % MATRIX_HEIGHT - 1;
   leds[index] = color;
+  leds[index].r *= ((double)BRIGHTNESS / MAX_BRIGHTNESS);
+  leds[index].g *= ((double)BRIGHTNESS / MAX_BRIGHTNESS);
+  leds[index].b *= ((double)BRIGHTNESS / MAX_BRIGHTNESS);
   Serial.println(index);
 }
