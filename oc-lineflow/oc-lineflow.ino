@@ -1,3 +1,5 @@
+// OC用の300LEDテープを用いた装飾
+
 #include <FastLED.h>  // FastLED library
 
 #define DATA_PIN 6

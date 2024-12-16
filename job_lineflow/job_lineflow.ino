@@ -1,3 +1,6 @@
+// 大学説明会用の装飾
+// 300LEDのLEDテープを使って、色のグラデーションを行う
+
 #include <FastLED.h>  // FastLED library
 
 #define DATA_PIN 6
